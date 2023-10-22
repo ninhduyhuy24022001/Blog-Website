@@ -1,0 +1,24 @@
+{% extends "core/base.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+    <main>
+        <h1 class="title"><strong>Read The Blog</strong></h1>
+
+        <div class="list-posts">
+            {% for i in '1234'|make_list %}
+                <div class="detail-post">
+                    <a class="">
+                        <img src="https://via.placeholder.com/300x200.jpg" class="img-post">
+                    </a>
+                    <div class="description-post">
+                        <p>Date: July 22, 2029</p>
+                        <h2 class="mt-1">WFH's The New Normal</h2>
+                        <p class="read-next mt-1"><a href="#">Read full post <i class="fa-solid fa-arrow-right"></a></i></p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock %}
