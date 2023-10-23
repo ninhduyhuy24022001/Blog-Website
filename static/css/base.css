@@ -1,0 +1,85 @@
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+footer {
+    background-color: rgb(71 85 105);
+    color: white;
+    padding: 1rem 0rem;
+    margin-top: 1.5rem;
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+strong {
+    font-weight: 600;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    padding: 2rem;
+    background-color: rgb(71 85 105);
+}
+
+nav a {
+    color: white;
+}
+
+nav a:hover {
+    color: rgb(77 124 15);
+}
+
+.nav-middle-button {
+    display: flex;
+    gap: 2rem;
+}
+
+/* footer  */
+.footer-first {
+    display: flex;
+    justify-content: space-between;
+    padding:0 1rem;
+    /* margin-right: 2rem; */
+}
+
+.social-media {
+    display: flex;
+    gap: 1rem;
+    font-size: 1.5rem;
+}
+
+.footer-second {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+footer a:hover {
+    color: rgb(77 124 15);
+}
+
+.footer-second a {
+    color: white;
+}

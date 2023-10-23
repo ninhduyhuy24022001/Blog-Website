@@ -5,11 +5,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="/static/css/reset_css.css"/>
-        <link rel="stylesheet" href="/static/css/styles.css"/>
-
-        <title>{% block title %}{% endblock %}Blog</title>
-
+        <link rel="stylesheet" href="/static/css/reset.css"/>
+        <link rel="stylesheet" href="/static/css/base.css"/>
+        {% block css %} {% endblock css %}
+        
         {% comment %} google font {% endcomment %}
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,24 +23,24 @@
     </head>
 
     <body>
-        <nav class="nav">
+        <nav>
             <h3>Blog Website</h3>
 
-            <div class="nav-button">
-                <a href="#" class="nav-button-item">Home</a>
-                <a href="#" class="nav-button-item">My Blog</a>
-                <a href="#" class="nav-button-item">Potfolio</a>
+            <div class="nav-middle-button">
+                <a href="{% url 'core:homepage' %}">Home</a>
+                <a href="#">My Blog</a>
+                <a href="#">Potfolio</a>
             </div>
 
-            <a href="#" class="login-button">Login <i class="fa-solid fa-arrow-right"></i></i></a>
+            <a href="{% url 'core:login' %}" class="login-button">Login <i class="fa-solid fa-arrow-right"></i></i></a>
         </nav>
 
         {% block content %}
         {% endblock %}
     </body>
 
-    <footer class="footer">
-        <div class="nav">
+    <footer>
+        <div class="footer-first">
             <h3>My Blog</h3>
             
             <div class="social-media">
@@ -51,7 +50,7 @@
             </div>
         </div>
 
-        <div class="nav-footer">
+        <div class="footer-second">
                 <a href="#" class="">Home</a>
                 <a href="#" class="">My Blog</a>
                 <a href="#" class="">Potfolio</a>

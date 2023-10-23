@@ -1,12 +1,17 @@
 {% extends "core/base.html" %}
 
+{% block css%}
+    {% load static %}
+    <link rel="stylesheet" href="/static/css/homepage.css"/>
+{% endblock %}
+
 {% block title %}Home Page{% endblock %}
 
 {% block content %}
     <main>
         <h1 class="title"><strong>Read The Blog</strong></h1>
 
-        <div class="list-posts">
+        <div class="list-post">
             {% for i in '1234'|make_list %}
                 <div class="detail-post">
                     <a class="">

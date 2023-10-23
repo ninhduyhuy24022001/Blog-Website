@@ -41,9 +41,15 @@ class Category(models.Model):
     slug = models.SlugField()
     content = models.TextField(max_length=255, blank=True, null=True)
 
+    class Meta:
+        verbose_name_plural = "categories"
+
 class PostCategory(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='categories')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='post')
+    
+    class Meta:
+        verbose_name_plural = "post categories"
 
 class Tag(models.Model):
     title = models.CharField(max_length=75)
