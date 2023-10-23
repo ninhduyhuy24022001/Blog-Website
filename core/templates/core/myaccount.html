@@ -1,0 +1,14 @@
+{% extends "core/base.html" %}
+
+{% block css%}
+    {% load static %}
+    <link rel="stylesheet" href="/static/css/authentication.css"/>
+{% endblock %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <main class="myaccount">
+        <a href="{% url 'core:logout' %}">Logout</a>
+    </main>
+{% endblock %}

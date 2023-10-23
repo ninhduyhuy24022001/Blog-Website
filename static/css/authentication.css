@@ -56,3 +56,9 @@ button {
     gap: 2rem;
 }
 
+/* myaccount  */
+.myaccount {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+}

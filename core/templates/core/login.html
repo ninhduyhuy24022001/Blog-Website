@@ -17,12 +17,14 @@
                 <a href="{% url 'core:signup' %}">Register</a>
             </div>
 
-            <form class="mt-2">
+            <form class="mt-2" method="POST">
+                {% csrf_token %}
+
                 <label>Username</label></br>
-                <input type='text' class="text-input"></br>
+                <input type='text' class="text-input" name="username"></br>
 
                 <label class="label mt-1" >Passoword</label></br>
-                <input type='password' class="text-input"></br>
+                <input type='password' class="text-input" name="password"></br>
 
                 <button class="label mt-1">Submit</button>
             </form>
