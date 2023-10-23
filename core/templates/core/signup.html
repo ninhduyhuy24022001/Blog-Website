@@ -12,26 +12,28 @@
         <div class="login-form">
             <h1 class="mt-3">Sign Up</h1>
 
-            <form class="mt-2">
+            <form class="mt-2" action="." method="POST">
+                {% csrf_token %}
+
                 <div class="name-form">
                     <div>
                         <label>First Name</label></br>
-                        <input type='text' class="text-input"></br>
+                        <input type='text' class="text-input" name="first_name"></br>
                     </div>
                     <div>
                         <label>Last Name</label></br>
-                        <input type='text' class="text-input"></br>
+                        <input type='text' class="text-input" name="last_name"></br>
                     </div>
                 </div>
 
                 <label class="label mt-1">Username</label></br>
-                <input type='text' class="text-input"></br>
+                <input type='text' class="text-input" name="username"></br>
 
                 <label class="label mt-1">Email</label></br>
-                <input type='email' class="text-input"></br>
+                <input type='email' class="text-input" name="email"></br>
 
                 <label class="label mt-1">Passoword</label></br>
-                <input type='password' class="text-input"></br>
+                <input type='password' class="text-input" name="password"></br>
 
                 <button class="label mt-1">Submit</button>
             </form>
