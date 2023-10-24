@@ -17,17 +17,38 @@
                 <a href="{% url 'core:signup' %}">Register</a>
             </div>
 
-            <form class="mt-2" method="POST">
+            <form class="mt-2" method="POST" name="login-form" onSubmit="return validateForm()">
                 {% csrf_token %}
 
-                <label>Username</label></br>
-                <input type='text' class="text-input" name="username"></br>
+                <label for="username">Username</label></br>
+                <input type='text' class="text-input" name="username", id="username"></br>
 
-                <label class="label mt-1" >Passoword</label></br>
-                <input type='password' class="text-input" name="password"></br>
+                <label class="label mt-1" for="password">Passoword</label></br>
+                <input type='password' class="text-input" name="password", id="password"></br>
 
                 <button class="label mt-1">Submit</button>
             </form>
         </div>
     </main>
+{% endblock %}
+
+{% block script %}
+    <script>
+        function validateForm() {
+            let userName = document.querySelector("#username").value;
+            let passWord = document.querySelector("#password").value;
+
+            if (userName === '') {
+                alert("Please enter username!");
+                return false;
+            }
+
+            if (passWord === '') {
+                alert("Please enter your password!")
+                return false
+            }   
+
+            return true;
+        }
+    </script>
 {% endblock %}
