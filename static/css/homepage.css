@@ -21,14 +21,6 @@ main {
     border-radius: 0.75rem;
 }
 
-.img-post {
-    border-radius: 0.75rem;
-}
-
-.description-post {
-    margin-top: 0.75rem;
-}
-
-.mt-1 {
-    margin-top: 1rem;
+.image-container{
+    position: relative;
 }

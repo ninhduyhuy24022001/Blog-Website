@@ -3,10 +3,15 @@ from django.contrib.auth import login as auth_login
 from django.shortcuts import render, redirect
 from .models import User
 
+from post.models import Post
+
 
 def homepage(request):
+    posts = Post.objects.all().order_by('created_at')[:4]
 
-    return render(request, 'core/homepage.html')
+    return render(request, 'core/homepage.html',{
+        'posts': posts,
+    })
 
 def signup(request):
     if request.method == "POST":
@@ -46,6 +51,7 @@ def login(request):
         return render(request, 'core/login.html')
 
 def myaccount(request):
+    
 
     return render(request, 'core/myaccount.html')
 
