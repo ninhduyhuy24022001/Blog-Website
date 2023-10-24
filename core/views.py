@@ -48,3 +48,19 @@ def login(request):
 def myaccount(request):
 
     return render(request, 'core/myaccount.html')
+
+def edit_account(request):
+    if request.method == "POST":
+        first_name = request.POST.get('first_name', '')
+        last_name = request.POST.get('last_name', '')
+        email = request.POST.get('email', '')
+
+        request.user.first_name = first_name
+        request.user.last_name = last_name
+        request.user.email = email
+        
+        request.user.save()
+
+        return redirect('/myaccount/')
+
+    return render(request, 'core/edit_account.html')

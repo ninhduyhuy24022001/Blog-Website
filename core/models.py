@@ -7,3 +7,5 @@ class User(AbstractUser):
     intro = models.TextField(max_length=255, blank=True, null=True)
     profile = models.TextField(max_length=2000, blank=True, null=True)
     
+    def get_full_name(self):
+        return f"{self.first_name} {self.last_name}"

@@ -5,10 +5,19 @@
     <link rel="stylesheet" href="/static/css/authentication.css"/>
 {% endblock %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Your Profile{% endblock %}
 
 {% block content %}
     <main class="myaccount">
-        <a href="{% url 'core:logout' %}">Logout</a>
+        <div class="mt-2">
+            <p class="mt-1"><strong>Username:</strong> {{ request.user.username }}<p>
+            <p class="mt-1"><strong>Yourname:</strong> {{ request.user.get_full_name }}</p>
+            <p class="mt-1"><strong>Email:</strong> {{ request.user.email }}</p>
+        </div>
+
+        <div class="mt-1">
+            <a href="{% url 'core:logout' %}">Logout</a> | 
+            <a href="{% url 'core:edit_account' %}">Edit Account</a>
+        <div>
     </main>
 {% endblock %}
