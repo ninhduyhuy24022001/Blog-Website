@@ -24,3 +24,8 @@ main {
 .image-container{
     position: relative;
 }
+
+.tag {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
