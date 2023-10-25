@@ -1,0 +1,3 @@
+{% for tag in post.tags.all %}
+    <a href="{% url 'post:tag_post' tag.id %}">#{{ tag.title }}</a>
+{% endfor %}

@@ -1,0 +1,18 @@
+{% for post in posts %}
+    <div class="detail-post">
+        <div class="mt-1">
+            <div class="tag">
+                {% include "post/partials/list_tag.html" %}
+            </div>
+            <a>
+                <img src="https://via.placeholder.com/300x200.jpg" class="img-post">
+            </a>
+        </div>
+
+        <div class="mt-1">
+            <p>Date: {{ post.created_at|date:"M d, Y" }}</p>
+            <h2 class="mt-1">{{ post.title }}</h2>
+            <p class="read-next mt-1"><a href="{% url 'post:detail' post.slug%}">Read full post <i class="fa-solid fa-arrow-right"></a></i></p>
+        </div>
+    </div>
+{% endfor %}

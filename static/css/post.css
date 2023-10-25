@@ -56,3 +56,15 @@ hr {
 .title {
     text-align: center;
 }
+
+.list-post-tag {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+}
+
+.detail-post {
+    border: 1px;
+    border-style: solid;
+    padding: 1rem;
+}
