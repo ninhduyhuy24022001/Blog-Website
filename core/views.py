@@ -51,9 +51,11 @@ def login(request):
         return render(request, 'core/login.html')
 
 def myaccount(request):
-    
+    posts = Post.objects.filter(author = request.user).order_by('-created_at')
 
-    return render(request, 'core/myaccount.html')
+    return render(request, 'core/myaccount.html', {
+        'posts': posts,
+    })
 
 def edit_account(request):
     if request.method == "POST":

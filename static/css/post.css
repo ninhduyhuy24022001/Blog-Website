@@ -63,7 +63,7 @@ hr {
     grid-gap: 10px;
 }
 
-.detail-post {
+.detail-post { 
     border: 1px;
     border-style: solid;
     padding: 1rem;

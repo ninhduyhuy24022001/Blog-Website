@@ -4,13 +4,15 @@
             <div class="tag">
                 {% include "post/partials/list_tag.html" %}
             </div>
-            <a>
-                <img src="https://via.placeholder.com/300x200.jpg" class="img-post">
-            </a>
+        </div>  
+        
+        <div class="img-post mt-1">
+            <img src="https://via.placeholder.com/300x200.jpg" class="center">
         </div>
 
         <div class="mt-1">
             <p>Date: {{ post.created_at|date:"M d, Y" }}</p>
+            <p class="mt-1">Create by: {{ post.author }}</p>
             <h2 class="mt-1">{{ post.title }}</h2>
             <p class="read-next mt-1"><a href="{% url 'post:detail' post.slug%}">Read full post <i class="fa-solid fa-arrow-right"></a></i></p>
         </div>

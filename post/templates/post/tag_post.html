@@ -1,15 +1,12 @@
 {% extends "core/base.html" %}
 
-{% block css%}
-    {% load static %}
-    <link rel="stylesheet" href="/static/css/post.css"/>
-{% endblock %}
-
 {% block title %}Edit Account{% endblock %}
 
 {% block content %}
     <main class="main">
-        <div class="list-post-tag">
+        <h1>#{{ tag.title }}</h1>
+
+        <div class="list-post-tag mt-1">
             {% include "post/partials/list_post.html" %}
         </div>
     </main>

@@ -33,6 +33,7 @@ LOGOUT_REDIRECT_URL = '/login/'
 # Application definition
 
 INSTALLED_APPS = [
+    'sass_processor',
     'fontawesomefree',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -134,6 +135,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static/') 
 STATICFILES_DIRS = [BASE_DIR / 'static']
+
+## Django Sass
+SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR,'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
