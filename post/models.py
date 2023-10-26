@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 from core.models import User
 
@@ -11,7 +12,6 @@ class Category(models.Model):
 
     def __str__(self):
         return f"{self.title}"
-
     class Meta:
         verbose_name_plural = "categories"
 
@@ -37,9 +37,14 @@ class Post(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
     published_at = models.DateTimeField(blank=True, null=True)
     content = models.TextField(max_length=2000, blank=True, null=True)
+    image = models.ImageField(upload_to="post_image", blank=True, null=True)
 
     categories = models.ManyToManyField(Category, related_name="posts")
     tags = models.ManyToManyField(Tag, related_name="posts")
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Post, self).save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.title}"

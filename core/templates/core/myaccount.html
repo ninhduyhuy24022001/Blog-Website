@@ -14,19 +14,5 @@
             <a href="{% url 'core:logout' %}">Logout</a> | 
             <a href="{% url 'core:edit_account' %}">Edit Account</a>
         <div>
-
-        
-        <a href="{% url 'post:new' %}" class="new-post-button mt-1" >New Post</a>
-
-        <div class="mt-2">
-            <h2>Your Posts</h2>
-            {% for post in posts %}
-                <div class="post mt-1">
-                    <p>{{ post.title }}</p>
-                    <p><strong>Date:</strong> {{ post.created_at }}</p>
-                    <a href="{% url 'post:detail' post.slug %}">Full post</a>
-                </div>
-            {% endfor %}
-        </div>
     </main>
 {% endblock %}

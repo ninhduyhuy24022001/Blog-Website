@@ -11,11 +11,6 @@ hr {
     padding: 0;
 }
 
-.main {
-    max-width: 80rem;
-    margin: 1rem auto;
-}
-
 .header-post {
     display: flex;
     gap: 1rem;
@@ -57,14 +52,13 @@ hr {
     text-align: center;
 }
 
-.list-post-tag {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-gap: 10px;
+.textarea-select {
+    display: flex;
+    gap: 2rem;
 }
 
-.detail-post { 
-    border: 1px;
-    border-style: solid;
-    padding: 1rem;
+.list-post-tag {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
 }

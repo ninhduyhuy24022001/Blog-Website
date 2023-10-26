@@ -5,9 +5,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        {% load static %}
         <link rel="stylesheet" href="/static/css/reset.css"/>
+        {% load static %}
         <link rel="stylesheet" href="/static/css/base.css"/>
+        {% load static %}
         <link rel="stylesheet" href="/static/css/core.css"/>
+        {% load static %}
         <link rel="stylesheet" href="/static/css/post.css"/>
         
         {% comment %} google font {% endcomment %}
@@ -25,16 +29,16 @@
 
     <body>
         <nav>
-            <h3>Blog Website</h3>
+            <h3><a href="{% url 'core:homepage' %}">Blog Website</a></h3>
 
             <div class="nav-middle-button">
                 <a href="{% url 'core:homepage' %}">Home</a>
-                <a href="#">My Blog</a>
+                <a href="{% url 'core:my_post' %}">My Blog</a>
                 <a href="#">Potfolio</a>
             </div>
             
             {% if request.user.is_authenticated %}
-                <a href="{% url 'core:myaccount' %}" class="login-button">{{ request.user.last_name }} <i class="fa-solid fa-user"></i></a>
+                <a href="{% url 'core:myaccount' %}" class="login-button">{{ request.user.last_name }}, <i class="fa-solid fa-user"></i></a>
             {% else %}
                 <a href="{% url 'core:login' %}" class="login-button">Login <i class="fa-solid fa-arrow-right"></i></i></a>
             {% endif %}

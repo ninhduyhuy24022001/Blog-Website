@@ -5,9 +5,13 @@
                 {% include "post/partials/list_tag.html" %}
             </div>
         </div>  
-        
+
         <div class="img-post mt-1">
-            <img src="https://via.placeholder.com/300x200.jpg" class="center">
+            {% if post.image %}
+                <img src="{{ post.image.url }}" class="set-image"/>
+            {% else %}
+                <img src="https://via.placeholder.com/300x200.jpg" class="set-image">
+            {% endif %}
         </div>
 
         <div class="mt-1">

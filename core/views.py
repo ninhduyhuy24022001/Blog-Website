@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from .models import User
 
 from post.models import Post
@@ -72,3 +73,12 @@ def edit_account(request):
         return redirect('/myaccount/')
 
     return render(request, 'core/edit_account.html')
+
+
+@login_required
+def my_post(request):
+    posts = Post.objects.filter(author=request.user)
+
+    return render(request, 'core/my_post.html', { 
+        'posts': posts,
+    })

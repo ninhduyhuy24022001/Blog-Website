@@ -1,0 +1,21 @@
+{% extends "core/base.html" %}
+
+{% block title %}Your Profile{% endblock %}
+
+{% block content %}
+    <main class="myaccount">
+        <a href="{% url 'post:new' %}" class="new-post-button mt-1" >New Post</a>
+
+        <div class="list-your-post mt-2">
+            <h2>Your Posts</h2>
+            {% for post in posts %}
+                <div class="post mt-1">
+                    <p>{{ post.title }}</p>
+                    <p class="mt-small"><strong>Date:</strong> {{ post.created_at }}</p>
+                    <a href="{% url 'post:detail' post.slug %}" class="mt-small inline-block">See post</a>
+                    <hr/>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock %}

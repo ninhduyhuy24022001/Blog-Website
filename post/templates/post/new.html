@@ -4,6 +4,50 @@
 
 {% block content %}
     <main class="main">
-        <p>Hello new page</a>
+        <h1>New Post</h1>
+
+        <form action="." method="post" class="mt-2">
+            {% csrf_token %}
+            <label for="title" class="inline-block">Title:</label><br>
+            <input type="text" id="title" name="title"><br>
+
+            <label for="meta_title" class="inline-block mt-1">Meta title:</label><br>
+            <input type="text" id="meta_title" name="meta_title"><br><br>
+
+            <div class="textarea-select mt-1">
+                <div>
+                    <label for="summary" class="inline-block">Summary:</label><br>
+                    <textarea  id="summary" name="summary" rows="10" cols="60"></textarea></br>
+                </div>
+                <div>
+                    <label for="categories">Choose categories:</label><br/>
+                    <select name="categories" id="categories" multiple class="mt-1">
+                        {% for category in categories %}
+                            <option value="{{ category.id }}">{{ category.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="textarea-select mt-1">
+                <div>
+                    <label for="content" class="inline-block mt-1">Content:</label><br>
+                    <textarea  id="content" name="content" rows="10" cols="60"></textarea><br/><br/>
+                </div>
+                <div>
+                    <label for="tags">Choose tags:</label><br/>
+                    <select name="tags" id="tags" multiple class="mt-1">
+                        {% for tag in tags %}
+                            <option value="{{ tag.id }}">{{ tag.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <label for="image_file">Select a file:</label>
+            <input type="file" id="image_file" name="image_file">
+
+            <input type="submit" value="Submit">
+        </form> 
     </main>
 {% endblock %}
