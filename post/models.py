@@ -15,7 +15,6 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = "categories"
 
-
 class Tag(models.Model):
     title = models.CharField(max_length=75)
     meta_title = models.CharField(max_length=100)

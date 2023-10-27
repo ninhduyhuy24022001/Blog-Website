@@ -6,7 +6,7 @@
     <main class="main">
         <h1>Edit Post</h1>
 
-        <form action="." method="post" class="mt-2">
+        <form action="." method="post" class="mt-2" enctype="multipart/form-data">
             {% csrf_token %}
             <label for="title" class="inline-block">Title:</label><br>
             <input type="text" id="title" name="title" value="{{ post.title }}"><br>
@@ -23,7 +23,11 @@
                     <label for="categories">Choose categories:</label><br/>
                     <select name="categories" id="categories" multiple class="mt-1">
                         {% for category in categories %}
-                            <option value="{{ category.id }}">{{ category.title }}</option>
+                            {% if category.selected %}
+                                <option value="{{ category.id }}" selected>{{ category.title }}</option>
+                            {% else %}
+                                <option value="{{ category.id }}">{{ category.title }}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
                 </div>
@@ -31,14 +35,18 @@
 
             <div class="textarea-select mt-1">
                 <div>
-                    <label for="content" class="inline-block mt-1">Content:</label><br>
+                    <label for="content" class="inline-block">Content:</label><br>
                     <textarea  id="content" name="content" rows="10" cols="60">{{ post.content }}</textarea><br/><br/>
                 </div>
                 <div>
                     <label for="tags">Choose tags:</label><br/>
                     <select name="tags" id="tags" multiple class="mt-1">
                         {% for tag in tags %}
-                            <option value="{{ tag.id }}">{{ tag.title }}</option>
+                            {% if tag.selected %}
+                                <option value="{{ tag.id }}" selected>{{ tag.title }}</option>
+                            {% else %}
+                                <option value="{{ tag.id }}">{{ tag.title }}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
                 </div>

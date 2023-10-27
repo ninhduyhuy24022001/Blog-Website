@@ -27,7 +27,6 @@ def new(request):
         meta_title = request.POST.get('meta_title', '')
         summary = request.POST.get('summary', '')
         content = request.POST.get('content', '')
-        image_file = request.POST.get('image_file', '')
         categories = request.POST.getlist('categories', '')
         tags = request.POST.getlist('tags', '')
 
@@ -37,14 +36,13 @@ def new(request):
             meta_title=meta_title,
             summary=summary,
             content=content,
-            image=image_file,
         )
 
         post.save()
         post.categories.set(categories)
         post.tags.set(tags)
 
-        return redirect('/myaccount')
+        return redirect('/my-post')
     else:
         categories = Category.objects.all()
         tags = Tag.objects.all()
@@ -73,8 +71,23 @@ def edit(request, pk):
 
         return redirect('/my-post')
     else:
-        categories = Category.objects.all()
-        tags = Tag.objects.all()
+
+        # handle tags and categories of instance
+        categories = Category.objects.all().values()
+        tags = Tag.objects.all().values()
+
+        for category in categories:
+            if category in post.categories.all().values():
+                category['selected'] = True,
+            else:
+                category['selected'] = False;
+
+        for tag in tags:
+            if tag in post.tags.all().values():
+                tag['selected'] = True,
+            else:
+                tag['selected'] = False;
+
 
     return render(request, 'post/edit.html', {
         'categories': categories,

@@ -77,7 +77,7 @@ def edit_account(request):
 
 @login_required
 def my_post(request):
-    posts = Post.objects.filter(author=request.user)
+    posts = Post.objects.filter(author=request.user).order_by('-created_at')
 
     return render(request, 'core/my_post.html', { 
         'posts': posts,
