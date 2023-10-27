@@ -3,6 +3,9 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Post, Tag, Category
 
+from PIL import Image
+
+
 def detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
     post = get_object_or_404(Post, slug=slug)
@@ -27,6 +30,8 @@ def new(request):
         meta_title = request.POST.get('meta_title', '')
         summary = request.POST.get('summary', '')
         content = request.POST.get('content', '')
+        image_file = request.FILES['image_file']
+
         categories = request.POST.getlist('categories', '')
         tags = request.POST.getlist('tags', '')
 
@@ -36,6 +41,7 @@ def new(request):
             meta_title=meta_title,
             summary=summary,
             content=content,
+            image=image_file,
         )
 
         post.save()
@@ -60,7 +66,11 @@ def edit(request, pk):
         post.meta_title = request.POST.get('meta_title', '')
         post.summary = request.POST.get('summary', '')
         post.content = request.POST.get('content', '')
-        post.image_file = request.POST.get('image_file', '')
+
+        # handle image
+        if request.FILES.get('image_file'):
+            image_file = request.FILES.get('image_file', '')
+            post.image = image_file        
 
         categories = request.POST.getlist('categories', '')
         tags = request.POST.getlist('tags', '')

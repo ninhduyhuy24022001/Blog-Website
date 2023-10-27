@@ -52,8 +52,15 @@
                 </div>
             </div>
 
+            {% if post.image %}
+                <p class="mb-1">Current file: <a href="#">{{ post.image.name }}</a></p>
+                <label for="image_file">Select a file:</label>
+                <input type="file" id="image_file" name="image_file">
+            {% else %}
             <label for="image_file">Select a file:</label>
-            <input type="file" id="image_file" name="image_file" value="{% if post.image %}{{ post.image.url }}{% endif %}">
+                <input type="file" id="image_file" name="image_file">
+            {% endif %}
+            
 
             <input type="submit" value="Submit">
         </form> 
