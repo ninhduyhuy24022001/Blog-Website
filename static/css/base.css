@@ -59,7 +59,7 @@ nav a:hover {
 .footer-first {
     display: flex;
     justify-content: space-between;
-    padding:0 1rem;
+    padding: 0 1rem;
     /* margin-right: 2rem; */
 }
 
@@ -123,7 +123,7 @@ a:active {
 }
 
 
- /* global */
+/* global */
 
 .detail-post {
     background-color: rgb(134 239 172);

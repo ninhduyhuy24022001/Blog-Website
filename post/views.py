@@ -53,3 +53,38 @@ def new(request):
         'categories': categories,
         'tags': tags,
     })
+
+@login_required
+def edit(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        post.title = request.POST.get('title', '')
+        post.meta_title = request.POST.get('meta_title', '')
+        post.summary = request.POST.get('summary', '')
+        post.content = request.POST.get('content', '')
+        post.image_file = request.POST.get('image_file', '')
+
+        categories = request.POST.getlist('categories', '')
+        tags = request.POST.getlist('tags', '')
+        post.categories.set(categories)
+        post.tags.set(tags)
+
+        post.save()
+
+        return redirect('/my-post')
+    else:
+        categories = Category.objects.all()
+        tags = Tag.objects.all()
+
+    return render(request, 'post/edit.html', {
+        'categories': categories,
+        'tags': tags,
+        'post': post,
+    })
+
+@login_required
+def delete(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.delete()
+
+    return redirect('/my-post')

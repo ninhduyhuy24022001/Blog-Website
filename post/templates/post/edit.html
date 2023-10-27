@@ -1,0 +1,53 @@
+{% extends "core/base.html" %}
+
+{% block title %}Edit {{ post.title }}{% endblock %}
+
+{% block content %}
+    <main class="main">
+        <h1>Edit Post</h1>
+
+        <form action="." method="post" class="mt-2">
+            {% csrf_token %}
+            <label for="title" class="inline-block">Title:</label><br>
+            <input type="text" id="title" name="title" value="{{ post.title }}"><br>
+
+            <label for="meta_title" class="inline-block mt-1">Meta title:</label><br>
+            <input type="text" id="meta_title" name="meta_title" value="{{ post.meta_title }}"><br><br>
+
+            <div class="textarea-select mt-1">
+                <div>
+                    <label for="summary" class="inline-block">Summary:</label><br>
+                    <textarea  id="summary" name="summary" rows="10" cols="60">{{ post.summary }}</textarea></br>
+                </div>
+                <div>
+                    <label for="categories">Choose categories:</label><br/>
+                    <select name="categories" id="categories" multiple class="mt-1">
+                        {% for category in categories %}
+                            <option value="{{ category.id }}">{{ category.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="textarea-select mt-1">
+                <div>
+                    <label for="content" class="inline-block mt-1">Content:</label><br>
+                    <textarea  id="content" name="content" rows="10" cols="60">{{ post.content }}</textarea><br/><br/>
+                </div>
+                <div>
+                    <label for="tags">Choose tags:</label><br/>
+                    <select name="tags" id="tags" multiple class="mt-1">
+                        {% for tag in tags %}
+                            <option value="{{ tag.id }}">{{ tag.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <label for="image_file">Select a file:</label>
+            <input type="file" id="image_file" name="image_file" value="{% if post.image %}{{ post.image.url }}{% endif %}">
+
+            <input type="submit" value="Submit">
+        </form> 
+    </main>
+{% endblock %}

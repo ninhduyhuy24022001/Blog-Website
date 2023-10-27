@@ -11,7 +11,11 @@
             </div>
 
             <div class="header-post-right">
-                <image src="{{ post.image.url }}" class="set-image">
+                {% if post.image %}
+                    <image src="{{ post.image.url }}" class="set-image">
+                {% else %}
+                    <image src=""/>
+                {% endif %}
             </div>
         </div>
 

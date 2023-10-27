@@ -62,3 +62,15 @@ hr {
     flex-wrap: wrap;
     margin: 0 auto;
 }
+
+.post-metadata {
+    width: 60%;
+}
+
+.edit-delete-button {
+    width: 40%;
+}
+
+.post {
+    display: flex;
+}

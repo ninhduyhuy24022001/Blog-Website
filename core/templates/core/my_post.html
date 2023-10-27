@@ -6,15 +6,22 @@
     <main class="myaccount">
         <a href="{% url 'post:new' %}" class="new-post-button mt-1" >New Post</a>
 
+        <h2 class="title">Your Posts</h2>
         <div class="list-your-post mt-2">
-            <h2>Your Posts</h2>
             {% for post in posts %}
                 <div class="post mt-1">
-                    <p>{{ post.title }}</p>
-                    <p class="mt-small"><strong>Date:</strong> {{ post.created_at }}</p>
-                    <a href="{% url 'post:detail' post.slug %}" class="mt-small inline-block">See post</a>
-                    <hr/>
+                    <div class="post-metadata">
+                        <p>{{ post.title }}</p>
+                        <p class="mt-small"><strong>Date:</strong> {{ post.created_at }}</p>
+                        <a href="{% url 'post:detail' post.slug %}" class="mt-small inline-block">See post</a>
+                    </div>
+                   
+                    <div class="edit-delete-button">
+                        <a href="{% url 'post:edit' post.id %}" class="new-post-button">Edit</a>
+                        <a href="{% url 'post:delete' post.id %}" class="new-post-button">Delete</a>
+                    </div>
                 </div>
+                <hr/>
             {% endfor %}
         </div>
     </main>
